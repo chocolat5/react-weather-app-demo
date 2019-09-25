@@ -3,7 +3,7 @@
 This is just sample Weather App built with React, Webpack.  
 I created this for my learning.  
 
-![React Weather App Demo](https://github.com/react-weather-app-demo/screenshot.png)
+![React Weather App Demo](https://github.com/chocolat5/react-weather-app-demo/blob/master/screenshot.png)
 
 The changes are as follows 
 
