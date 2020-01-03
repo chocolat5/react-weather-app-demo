@@ -5,7 +5,7 @@ import DayCard from './DayCard';
 
 const key = process.env.API_KEY;
 
-const WeekContainer = (props) => {
+const WeekContainer = props => {
   const [dailyData, setDailyData] = useState([]);
   const [dayData, setDayData] = useState([]);
   const [degreeType, setDegreeType] = useState('celsius');
@@ -17,8 +17,8 @@ const WeekContainer = (props) => {
       weatherUrl, {
         mode: 'cors',
       })
-    .then(response => {
-      return response.json()
+    .then(res => {
+      return res.json()
     })
     .then(data => {
       const dailyData = data.list.filter(reading => reading.dt_txt.includes('0:00:00'));

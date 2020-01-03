@@ -48,10 +48,10 @@ const DayCard = ({ daily, index, degreeType, dayData }) => {
       )}
 
       {index === 0 && (
-        <>
-        <p className="card_desc">{daily.weather[0].description}</p>
-        <p className="">Humidity : {daily.main.humidity} %</p>
-        </>
+        <React.Fragment>
+          <p className="card_desc">{daily.weather[0].description}</p>
+          <p className="">Humidity : {daily.main.humidity} %</p>
+        </React.Fragment>
       )}
     </div>
   );
