@@ -1,12 +1,13 @@
 const webpack = require('webpack');
+
 const path = require('path');
 const PORT = process.env.PORT || '8080';
-
-const Dotenv = require('dotenv-webpack');
 
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const AutoPrefixer = require('autoprefixer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const Dotenv = require('dotenv-webpack');
 
 module.exports = env => {
   return {
@@ -16,10 +17,11 @@ module.exports = env => {
     },
     target: 'node',
     output: {
-      path: path.resolve(__dirname, 'dist'),
-      filename: 'app.bundle.js'
+      filename: 'app.bundle.js',
+      path: path.resolve(__dirname, 'dist')
     },
     devServer: {
+      historyApiFallback: true,
       compress: true,
       contentBase: './dist',
       hot: true,
@@ -30,16 +32,9 @@ module.exports = env => {
         {
           test: /\.js[x]?$/,
           exclude: /node_modules/,
-          use: [
-            {
-              loader: 'babel-loader',
-              options: {
-                presets: [
-                  '@babel/react',
-                ]
-              }
-            }
-          ]
+          use: {
+            loader: 'babel-loader',
+          }
         },
         {
           test: /\.(css|scss)$/,
